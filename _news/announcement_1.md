@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-This website is live!
+This website is live! :sparkles: :smile:
