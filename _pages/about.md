@@ -9,12 +9,11 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>东吴·广州刺史部·南海郡·番禺县<p>
-    <p>东吴·扬州刺史部·会稽郡·钱塘县<p>
-
-  # <p>Jones 208</p>
-  # <p>5747 South Ellis Avenue</p>
-  # <p>Chicago, IL 60637</p>
+    <p>Jones 208</p>
+    <p>5747 South Ellis Avenue</p>
+    <p>Chicago, IL 60637</p>
+  #  <p>东吴·广州刺史部·南海郡·番禺县<p>
+  #  <p>东吴·扬州刺史部·会稽郡·钱塘县<p>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
