@@ -8,12 +8,15 @@
             RR: "{\\mathbb{R}}",
             EE: "{\\mathbb{E}}",
             PP: "{\\mathbb{P}}",
-            indicator: ["{\\mathbb{1}_{\\{#1\\}}}", 1]
+            indicator: ["{\\mathbb{1}_{#1}}", 1]
           },
           tags: 'ams',
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['\\[', '\\]']]
         },
+        chtml: {
+          scale: 0.8   // = 100% of normal math font size, global
+        }
       };
     </script>
     <script

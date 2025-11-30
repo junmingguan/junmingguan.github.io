@@ -61,7 +61,8 @@ blockquote {
   border-left: 5px solid var(--global-theme-color);
   margin: 1.5em 0;
   padding: 1em;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  opacity: 0.6;
 
   p {
     margin-bottom: 0;
@@ -1342,3 +1343,97 @@ ninja-keys::part(ninja-input-wrapper) {
   background-color: var(--global-theme-color);
   color: var(--global-text-color);
 }
+
+
+// math blocks
+
+/* Reset counters */
+body {
+  counter-reset: theorem-counter lemma-counter corollary-counter remark-counter;
+}
+
+/* Base styles for theorem, lemma, corollary */
+.theorem, .lemma, .corollary, .remark {
+  display: block;
+  // font-style: italic;      /* body of theorem in italic */
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  border-left: 4px solid var(--global-theme-color);
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+/* Theorem label default (no optional name) */
+.theorem { counter-increment: theorem-counter; }
+.theorem::before {
+  content: "Theorem " counter(theorem-counter) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Theorem with optional name via 'text' attribute */
+.theorem[text]::before {
+  content: "Theorem " counter(theorem-counter) ". (" attr(text) ") ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Lemma label */
+.lemma { counter-increment: lemma-counter; }
+.lemma::before {
+  content: "Lemma " counter(lemma-counter) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Lemma with optional name */
+.lemma[text]::before {
+  content: "Lemma " counter(lemma-counter) ". (" attr(text) ") ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Corollary label */
+.corollary { counter-increment: corollary-counter; }
+.corollary::before {
+  content: "Corollary " counter(corollary-counter) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Corollary with optional name */
+.corollary[text]::before {
+  content: "Corollary " counter(corollary-counter) ". (" attr(text) ") ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Remark label */
+.remark { counter-increment: remark-counter; }
+.remark::before {
+  content: "Remark " counter(remark-counter) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Remark with optional name */
+.remark[text]::before {
+  content: "Remark " counter(remark-counter) ". (" attr(text) ") ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Proofs */
+.proof {
+  padding:0.5em 1em;
+  margin:0.5em 0 1em 0;
+  border-left:4px solid var(--global-divider-color);
+  background-color:#f8f9fa;
+  border-radius:4px;
+  // font-size: 0.875rem;
+}
+// .proof[text]::before {
+//   content: "Proof of " attr(text);
+//   font-weight: bold;
+//   font-style: normal;
+// }
