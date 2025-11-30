@@ -1,13 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const counters = {theorem:0, lemma:0, corollary:0, remark:0};
+  const counters = {theorem:0, lemma:0, corollary:0, remark:0, definition:0};
 
   // Number theorem/lemma/corollary and store dataset
-  document.querySelectorAll('.theorem, .lemma, .corollary, .remark').forEach(el => {
+  document.querySelectorAll('.theorem, .lemma, .corollary, .remark, .definition').forEach(el => {
     let type;
     if(el.classList.contains('theorem')) type='theorem';
     else if(el.classList.contains('lemma')) type='lemma';
     else if(el.classList.contains('corollary')) type='corollary';
-    else type='remark';
+    else if(el.classList.contains('remark')) type='remark';
+    else type='definition';
 
     counters[type] += 1;
     el.dataset.number = counters[type];

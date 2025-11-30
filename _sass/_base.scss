@@ -1349,11 +1349,11 @@ ninja-keys::part(ninja-input-wrapper) {
 
 /* Reset counters */
 body {
-  counter-reset: theorem-counter lemma-counter corollary-counter remark-counter;
+  counter-reset: theorem-counter lemma-counter corollary-counter remark-counter definition-counter;
 }
 
 /* Base styles for theorem, lemma, corollary */
-.theorem, .lemma, .corollary, .remark {
+.theorem, .lemma, .corollary, .remark, .definition {
   display: block;
   // font-style: italic;      /* body of theorem in italic */
   margin: 1em 0;
@@ -1373,7 +1373,7 @@ body {
 
 /* Theorem with optional name via 'text' attribute */
 .theorem[text]::before {
-  content: "Theorem " counter(theorem-counter) ". (" attr(text) ") ";
+  content: "Theorem " counter(theorem-counter) ". " attr(text);
   font-weight: bold;
   font-style: normal;
 }
@@ -1388,7 +1388,7 @@ body {
 
 /* Lemma with optional name */
 .lemma[text]::before {
-  content: "Lemma " counter(lemma-counter) ". (" attr(text) ") ";
+  content: "Lemma " counter(lemma-counter) ". " attr(text);
   font-weight: bold;
   font-style: normal;
 }
@@ -1403,7 +1403,7 @@ body {
 
 /* Corollary with optional name */
 .corollary[text]::before {
-  content: "Corollary " counter(corollary-counter) ". (" attr(text) ") ";
+  content: "Corollary " counter(corollary-counter) ". " attr(text);
   font-weight: bold;
   font-style: normal;
 }
@@ -1418,7 +1418,23 @@ body {
 
 /* Remark with optional name */
 .remark[text]::before {
-  content: "Remark " counter(remark-counter) ". (" attr(text) ") ";
+  content: "Remark " counter(remark-counter) ". " attr(text);
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+/* Definition label */
+.definition { counter-increment: definition-counter; }
+.definition::before {
+  content: "Definition " counter(definition-counter) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Definition with optional name */
+.definition[text]::before {
+  content: "Definition " counter(definition-counter) ". " attr(text);
   font-weight: bold;
   font-style: normal;
 }
