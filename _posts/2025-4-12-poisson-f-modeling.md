@@ -33,34 +33,20 @@ $$
 
 We want to show that $$\mathbb{E}[\theta \mid Z=z]$$ is monotonic in \\(Z=z\\). To do so, we want to show
 $$
-    \frac{\mathbb{E}[\theta \mid Z=z]}{\mathbb{E}[\theta \mid Z=z-1]} \geq 1,
+    \mathbb{E}[\theta \mid Z=z] \geq \mathbb{E}[\theta \mid Z=z-1],
 $$
 which amounts to showing
 
 $$
-    \frac{\int e^{-\theta} \theta^{z+1}dG(\theta)}{\int e^{-\theta}\theta^{z}dG(\theta)} \geq \frac{\int e^{-\theta} \theta^{z}dG(\theta)}{\int e^{-\theta} \theta^{z-1}dG(\theta)}.
+\begin{equation}
+ \frac{\int e^{-\theta} \theta^{z+1}dG(\theta)}{\int e^{-\theta}\theta^{z}dG(\theta)} \geq \frac{\int e^{-\theta} \theta^{z}dG(\theta)}{\int e^{-\theta} \theta^{z-1}dG(\theta)}. \label{eq:target}    
+\end{equation}
 $$
 
-**Idea**: Consider the measure \\(dH_{z}(\theta) = e^{-\theta} \theta^{z}dG(\theta)\\). It boils down to showing \\(h(z) = \int dH_z\\) is log-convex, so that \\(\text{log}(h(z+1))+\text{log}(h(z-1)) \geq 2\text{log}(h(z))\\).
-
-Note that
-$$
-    \frac{d }{dz}h(z) = \int e^{-\theta} \theta^{z}\text{ln}\theta dG(\theta) = \mathbb{E}_{H_{z}} [\text{ln}\theta].
-$$
-
-This is because the function \\(a(\theta) = e^{-\theta} \theta^{z} \text{ln} \theta\\) is bounded (think about the Gamma function) hence integrable with respect to $$G$$, a probability measure, so one can differentiate the expectation (see Klenke). Similarly,
-\\(e^{-\theta} \theta^{z} (\text{ln} \theta)^2\\) is bounded, and thus
-$$
-     \frac{d^{2} }{dz^{2}}h(z) = \int e^{-\theta} \theta^{z}(\text{ln}\theta)^{2} dG(\theta) = \mathbb{E}_{H_{z}} [(\text{ln}\theta)^{2}].
-$$
-
-By Cauchy-Schwarz, we have
-$$
-    (\mathbb{E}_{H_{z}} [\text{ln} \theta])^{2} = h^{(1)}(z)^{2} \leq \mathbb{E}_{H_{z}}[1]\mathbb{E}_{H_{z}}[(\text{ln} \theta)^{2}] = h(z)h^{(2)}(z).
-$$
-
-So $$h(z)$$ is log-convex, due to the fact that
+**Idea**: consider the measure $$dH(\theta)=e^{-\theta} \theta^{z-1} dG(\theta)$$. By Cauchy-Schwarz, we have
 
 $$
-    \big( \text{log}(h(z)) \big)^{''} = \frac{h(z)h^{(2)}(z)-h^{(1)}(z)^2}{h^{(1)}(z)^{2}} \geq 0.
+    \left[ \int \theta \,dH(\theta)\right]^2 \leq \int \theta^2\, dH(\theta) \int 1\, dH(\theta),
 $$
+
+which is equivalent to $$\eqref{eq:target}$$.
