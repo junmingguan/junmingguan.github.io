@@ -1349,11 +1349,11 @@ ninja-keys::part(ninja-input-wrapper) {
 
 /* Reset counters */
 body {
-  counter-reset: theorem-counter lemma-counter corollary-counter remark-counter definition-counter;
+  counter-reset: theorem-counter lemma-counter corollary-counter proposition-counter remark-counter definition-counter;
 }
 
-/* Base styles for theorem, lemma, corollary */
-.theorem, .lemma, .corollary, .remark, .definition {
+/* Base styles for theorem, lemma, corollary, proposition, remark, definition */
+.theorem, .lemma, .corollary, .proposition, .remark, .definition {
   display: block;
   // font-style: italic;      /* body of theorem in italic */
   margin: 1em 0;
@@ -1404,6 +1404,21 @@ body {
 /* Corollary with optional name */
 .corollary[text]::before {
   content: "Corollary " counter(corollary-counter) ". " attr(text);
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Proposition label */
+.proposition { counter-increment: proposition-counter; }
+.proposition::before {
+  content: "Proposition " counter(proposition-counter) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Proposition with optional name */
+.proposition[text]::before {
+  content: "Proposition " counter(proposition-counter) ". " attr(text);
   font-weight: bold;
   font-style: normal;
 }
