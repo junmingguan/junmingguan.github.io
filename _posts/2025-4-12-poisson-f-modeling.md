@@ -9,18 +9,13 @@ related_posts: false
 featured: true
 ---
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: {
-    Macros: {
-      RR: "{\\mathbb{R}}",
-      EE, "{\\mathbb{E}}",
-      vec: ["{\\mathbf{#1}}", 1],
-      abs: ["\\left|#1\\right|", 1]
-    }
-  }
-});
-</script>
+
+<p style="display:none"> 
+$$
+    \newcommand{\RR}{\mathbb{R}}
+    \newcommand{\EE}{\mathbb{E}}
+$$
+</p>
 
 Suppose \\( Z\sim \text{Poi}(\theta)\\) and \\(\theta\sim G\in \mathcal{P}(\mathbb{R}_+)\\). The posterior mean of \\(\theta \mid Z=z\\) is given by:
 $$
